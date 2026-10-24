@@ -1,0 +1,146 @@
+site_name: OWASP Application Security Verification Standard (ASVS)
+
+# docs_dir: mkdocs-content-input/
+site_dir: ../wwwroot/ # mkdocs build destination
+
+# https://github.com/jimandreas/mkdocs-material/blob/master/mkdocs.yml
+# https://github.com/mkdocs/catalog
+
+use_directory_urls: true
+
+theme:
+  name: material
+  logo: images/owasp_asvs_w.png
+  favicon: images/owasp_asvs_w.png
+  features:
+    - search.suggest
+    #- search.share
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.preview
+    - navigation.instant.progress
+    - navigation.tabs
+    # - navigation.tabs.sticky # jätab ülemise menüü alati nähtavale
+    # - navigation.sections # kuvab kogu vasaku menüü struktuuri välja, läheb liiga pikaks
+    # - navigation.expand
+    - navigation.path # ei tööta justkui
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.footer # prev - next footeris
+
+    - toc.follow
+    #- toc.integrate # lisab vasakusse menüüsse
+
+    # - header.autohide
+
+    - content.code.copy
+    - content.tabs
+    #- content.tabs.link # sisu tabidesse jaotamine
+
+
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      #primary: indigo
+      #accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      #primary: blue
+      #accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  #font:
+  #  text: Roboto
+  #  code: Roboto Mono
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - awesome-pages # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+  #- tags: # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
+  #    tags_file: tags.md
+  #- offline: # vajalik pigem kohaliku failisüsteemi vahendusel serveerimiseks
+
+
+markdown_extensions:
+  - abbr # https://squidfunk.github.io/mkdocs-material/reference/tooltips/#adding-abbreviations
+  - admonition
+  - attr_list
+  #- def_list
+  - md_in_html
+  - pymdownx.details
+  #- pymdownx.inlinehilite
+  - pymdownx.highlight: # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#highlight
+      use_pygments: true
+      pygments_lang_class: true
+      #linenums: true
+      line_spans: __span
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  #- material.extensions.preview:
+  #    sources:
+  #      include:
+  #        - test-case/*
+  #        - test-scenario/*
+  #        - manual/*
+  #        - crg-templates/*
+
+  #- pymdownx.tasklist: # https://squidfunk.github.io/mkdocs-material/reference/lists/#using-task-lists
+  #    custom_checkbox: true
+
+  # https://squidfunk.github.io/mkdocs-material/reference/formatting/#highlighting-changes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+
+# muidu tore ja pygments tugi, aga ei vahetu dark/light muutusel
+#markdown_extensions:
+#  - codehilite:
+#      guess_lang: False
+#      use_pygments: True
+#      noclasses: True
+#      pygments_style: monokai # https://pygments.org/styles/
+
+nav:
+  - 'The Project':
+    - 'README.md'
+    - 'Supporters': 'SUPPORTERS.md'
+    - 'Contributing': 'CONTRIBUTING.md'
+    #- 'Compiling': 'COMPILING.md'
+    #- 'Licence': 'LICENSE.md'
+  - 'ASVS v5.0.0':
+    # the line below will be replaced automatically
+    - '... | flat | v5.0.0/*.md'
+  - 'ASVS v4.0.3':
+    # the line below will be replaced automatically
+    - '... | flat | v4.0.3/*.md'
+  - 'Mappings':
+    - 'Overview' : 'Mappings.md'
+    - 'From v4.0.3 to v5.0.0' : 'https://asvs.dev/mapping_v4.0.3_to_v5.0.0.html'
+    - 'From v5.0.0 to v4.0.3' : 'https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html'
+
+extra:
+  generator: false
+  #status:
+  #  draft: This is draft, still requires some work

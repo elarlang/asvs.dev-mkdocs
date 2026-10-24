@@ -1,0 +1,39 @@
+
+[data-md-color-scheme="default"] {
+  /* --md-code-bg-color: hsla(var(--md-hue), 15%, 18%, 1); */
+  --md-code-bg-color: #FFF7DD;
+  --md-default-fg-color--light: #0a3b65; /* 0F5591 */
+  --md-primary-fg-color: #0a3b65;
+}
+
+
+.md-grid {
+  max-width: 95%;
+}
+
+.md-sidebar--primary {
+  margin-right: 2em;
+}
+
+.md-sidebar--secondary {
+  margin-left: 2em;
+}
+
+/* Maximum space for tables */
+
+.md-typeset__table {
+  width: 100%;
+}
+
+.md-typeset__table table:not([class]) {
+  display: table
+}
+
+.md-content h1,
+.md-content h2 {
+  font-weight: 500;
+}
+
+.md-content strong {
+  opacity: 0.8;
+}
